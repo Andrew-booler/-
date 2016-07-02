@@ -1,4 +1,4 @@
-package com.activityweb.action;
+package com.activityweb.actio
 
 import java.util.List;
 
