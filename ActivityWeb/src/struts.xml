@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+ "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	
+
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.custom.i18n.resources" value="activityweb"></constant>
+    <package name="admin" namespace="/admin" extends="struts-default" >
+   		
+   		
+   		
+   		<action name="index">
+   			<result>/admin/index.html</result>
+   		</action>
+   		
+       <action name="*-*" class="com.activityweb.action.{1}Action" method="{2}">
+       		<result>/admin/{1}-{2}.jsp</result>
+       		<result name="input">/admin/{1}-{2}.jsp</result>
+       </action>
+       
+       <action name="lang" class="com.activityweb.action.LangAction">
+       		<result>/admin/Login-input.jsp</result>
+       </action>
+
+    </package>
+    
+    
+    <package name="front" namespace="/" extends="struts-default" >
+    	 <default-action-ref name="index"/>  <!-- bug!!! -->
+    
+       <action name="index" class="com.activityweb.action.CategoryAction" method="list">
+       		<result>/index.jsp</result>
+       </action>
+       
+      
+    </package>
+    
+     
+
+
+</struts>    
